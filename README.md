@@ -15,6 +15,7 @@ used in real time operating systems except Round Robin scheduling.
 
 /** A number of assumptions are considered in CPU scheduling which are as
 follows: **/
+
 1.Job pool consists of run able processes waiting for the CPU.
 2.All processes are independent and compete for resources.
 3.The job of the scheduler is to distribute the limited resources of
@@ -54,3 +55,68 @@ the system. If a real-time process having relatively larger CPU burst it will
 leads to the problem of starvation .Priority scheduling may be a better
 option for real-time scheduling but it will face the similar problem i.e. low
 priority processes will always starve.
+
+# II. SCHEDULING OBJECTIVES
+A system architect must consider various elements in constructing a scheduling
+algorithm, for example, kind of frameworks utilized and client necessities.
+Relying upon the system, the client and designer may anticipate that the
+schedulers will :
+Maximize throughput: A scheduling algorithm ought to be equipped for
+adjusting the greatest number of jobs per unit of time.
+Avoid inconclusive blocking or starvation: A job ought not sit tight
+for unbounded time before or while process service.
+Minimize overhead: Overhead causes wastage of assets. Be that as it
+may, when we utilize system resources viably, then general system
+execution enhances extraordinarily.
+Enforcement of priorities: if system allocates priorities to forms, the
+booking system ought to support the higher-need forms.
+Attain balance between response, utilization: the scheduling
+algorithm must keep resources occupied
+Support jobs which show desirable behavior.
+Corrupt gracefully under huge load.
+A system might finish these objectives in many ways. The scheduler can
+stall indefinite blocking of jobs via aging. Scheduler increments throughput
+by favoring processes whose requests can be satisfied quickly, or whose
+completion cause other processes to run.
+# III. SCHEDULING CRITERIA
+CPU scheduling algorithms maybe such which have different properties, and
+the choice of one particular algorithm might favor one category of processes
+over other. Choosing an algorithm for a particular situation, we must cater to
+properties of various algorithms. The scheduling criteria include the
+following:
+Context Switch: A context switch is process of storing and restoring
+context (state) of a preempted process, so that execution may be resumed
+from same point at a later stage. Context switching involves a lot of
+computation, lead to wastage of time and memory, which in turn
+increases the overhead of scheduler, hence operating system’s design, is
+to optimize only these switches.
+Throughput: it is the number of processes completed per unit time. It is
+slow in round robin scheduling implementation. Context switching and
+throughput are inversely proportional.
+CPU Utilization: Tells the business of the CPU. One needs to
+maximize CPU utilization.
+Turnaround Time: Total time spent to complete the job. The time
+interval from the time of submission of a job to its completion is the
+turnaround time. Total turnaround time is the sum of the times spent
+waiting to get into memory, waiting time in the ready queue, execution
+time on the CPU and doing I/O.
+Waiting Time: Time a job has been stalled in ready queue. The CPU
+scheduling algorithm does not affect the amount of time during which a
+process executes or does input-output; it affects only the amount of time
+that a process spends waiting in ready queue.
+Response Time: in real time systems, turnaround time may not be best
+measure. Often, a job can provide with some output fairly early and
+continue computing new results while previous results are being
+produced to the user. Thus, it is the time from the submission of a
+request until the first response is produced that means time when the
+task is submitted until the first response is received. Thus, the response
+time should be less.
+Hence a good scheduling algorithm for real time and time sharing system must
+have: -
+ less context switches.
+ high CPU utilization.
+ high throughput.
+ Less turnaround time.
+ Less waiting
+time.
+
