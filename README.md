@@ -120,3 +120,38 @@ have: -
  Less waiting
 time.
 
+# Some commonly used RTOS scheduling algorithms are:
+# 1.Cooperarive Multitasaking
+Cooperative multitasking, also known as non-preemptive multitasking, is a
+style of computer multitasking in which the operating system never initiates
+a context switch from a running process to another process. Instead, processes
+voluntarily yield control periodically or when idle or logically blocked in order
+to enable multiple applications to be run concurrently. This type of multitasking
+is called "cooperative" because all programs must cooperate for the entire
+scheduling scheme to work. In this scheme, the process scheduler of an
+operating system is known as a cooperative scheduler, having its role reduced
+down to starting the processes and letting them return control back to it
+voluntarily.
+Problems:
+As a cooperatively multitasked system relies on each process regularly
+giving up time to other processes on the system, one poorly designed program
+can consume all of the CPU time for itself, either by performing extensive
+calculations or by busy waiting; both would cause the whole system to hang. In 
+a server environment, this is a hazard that makes the entire environment
+unacceptably fragile.
+# 2.Rate-monotonic scheduling
+In computer science, rate-monotonic scheduling (RMS) is a priority
+assignment algorithm used in real-time operating systems (RTOS) with a
+static-priority scheduling class. The static priorities are assigned according to
+the cycle duration of the job, so a shorter cycle duration results in a higher
+job priority.
+These operating systems are generally preemptive and have deterministic
+guarantees with regard to response times. Rate monotonic analysis is used in
+conjunction with those systems to provide scheduling guarantees for a
+particular application.
+It is a mathematical model that contains a calculated simulation of periods in
+a closed system, where round-robin and time-sharing schedulers fail to meet
+the scheduling needs otherwise. Rate monotonic scheduling looks at a run
+modeling of all threads in the system and determines how much time is
+needed to meet the guarantees for the set of threads in question.
+
