@@ -155,3 +155,38 @@ the scheduling needs otherwise. Rate monotonic scheduling looks at a run
 modeling of all threads in the system and determines how much time is
 needed to meet the guarantees for the set of threads in question.
 
+# 3.Earliest deadline first scheduling
+Earliest deadline first (EDF) or least time to go is a dynamic
+priority scheduling algorithm used in real-time operating systems to place
+processes in a priority queue. Whenever a scheduling event occurs (task finishes,
+new task released, etc.) the queue will be searched for the process closest to its
+deadline. This process is the next to be scheduled for execution.
+EDF is an optimal scheduling algorithm on pre-emptive uniprocessors, in the
+following sense: if a collection of independent jobs, each characterized by an
+arrival time, an execution requirement and a deadline, can be scheduled (by any
+algorithm) in a way that ensures all the jobs complete by their deadline,
+the EDF will schedule this collection of jobs so they all complete by their
+deadline.
+However, when the system is overloaded, the set of processes that will
+miss deadlines is largely unpredictable (it will be a function of the exact
+deadlines and time at which the overload occurs.) This is a considerable
+disadvantage to a real time systems designer. The algorithm is also difficult to
+implement in hardware and there is a tricky issue of representing deadlines in
+different ranges (deadlines can't be more precise than the granularity of the clock
+used for the scheduling). Therefore EDF is not commonly found in industrial
+real-time computer systems.
+
+# ROUND ROBIN SCHEDULING ALGORITHM
+The round robin algorithm was designed mainly for time-shared systems not
+for real time systems. Time slice or time quantum is defined in case of RR
+algorithm, which refers to duration for which the process is allocated to the
+CPU and executed.
+The processes which have to be executed are kept in a circular queue which has
+a head and a tail. The CPU scheduler will go around the queue, allocating the
+CPU to each process for a time interval of one quantum but the problem is that
+all the processes are arranged in FCFS (First Come First Serve) manner.
+Arriving processes are then added to the tail of the queue.
+The CPU scheduler will then select the Process Control Block from the head of
+the ready queue. This is a disadvantage in RR algorithm since all processes are
+basically given the same priority. Round robin also favours the process with
+short CPU burst and penalizes long ones
