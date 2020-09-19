@@ -2,6 +2,8 @@
 #include<math.h>
 #include<iomanip>
 using namespace std;
+
+//function starts
 int main()
 {
 int n;
